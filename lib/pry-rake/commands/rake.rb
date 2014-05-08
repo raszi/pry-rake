@@ -7,14 +7,15 @@ if defined?(Rake)
     end
 
     def initialize_rake
-      Rake::TaskManager.record_task_metadata = true
-      [:init, :load_rakefile, :handle_options].each do |method|
-        rake.send(method)
-      end
+      rake.init
+      rake.send(:select_tasks_to_show, Rake.application.options, :tasks, nil)
+      rake.load_rakefile
+      rake.handle_options
     end
 
     def display_tasks(patterns)
-      rake.send(:select_tasks_to_show, Rake.application.options, :tasks, patterns.shift)
+      pattern = patterns.shift
+      rake.options.show_task_pattern = Regexp.new(pattern || '')
       rake.display_tasks_and_comments
     end
 
