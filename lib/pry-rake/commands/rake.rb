@@ -8,7 +8,7 @@ if defined?(Rake)
 
     def initialize_rake
       rake.init
-      rake.send(:select_tasks_to_show, Rake.application.options, :tasks, nil)
+      rake.send(:select_tasks_to_show, rake.options, :tasks, nil)
       rake.load_rakefile
       rake.handle_options
     end
