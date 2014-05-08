@@ -19,8 +19,9 @@ if defined?(Rake)
       rake.display_tasks_and_comments
     end
 
-    def invoke_task(command)
-      rake.invoke_task(command)
+    def invoke_task(task_string)
+      rake.invoke_task(task_string)
+      rake.tasks.each(&:reenable)
     end
 
     initialize_rake
