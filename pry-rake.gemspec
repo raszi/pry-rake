@@ -10,7 +10,7 @@ Gem::Specification.new do |spec|
   spec.email         = ['github@spam.raszi.hu']
   spec.summary       = %q{rake command for pry}
   spec.description   = %q{This gem adds a rake command to your pry console}
-  spec.homepage      = ''
+  spec.homepage      = 'https://github.com/raszi/pry-rake'
   spec.license       = 'MIT'
 
   spec.files         = `git ls-files`.split($/)
